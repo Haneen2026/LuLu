@@ -7,18 +7,26 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+    <!-- Header (unchanged) -->
     <header class="main-header">
         <div class="container">
             <div class="header-content">
                 <a href="#" class="logo">
                     <img src="assets/logo.png" alt="LuLu Logo">
                 </a>
+
                 <div class="search-bar">
                     <input type="text" placeholder="Search for products...">
                     <button>Search</button>
                 </div>
+
                 <nav class="header-nav">
+                    <a href="#" class="wishlist-link" aria-label="Wishlist">♡</a>
+                    <a href="#" class="cart-link" aria-label="Cart">🛒</a>
+
                     <button class="sign-in-btn">Sign In</button>
+
                     <select class="language-select">
                         <option value="en">English</option>
                         <option value="ar">العربية</option>
@@ -27,6 +35,98 @@
             </div>
         </div>
     </header>
+
+    <!-- Navigation bar for top 5 vacuum cleaner brands (unchanged) -->
+    <nav class="brands-nav">
+        <ul>
+            <li><a href="#">Dyson</a></li>
+            <li><a href="#">Shark</a></li>
+            <li><a href="#">Hoover</a></li>
+            <li><a href="#">Miele</a></li>
+            <li><a href="#">Bissell</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section: Full-width, single image visible -->
+    <section class="hero-offers-carousel">
+        <div class="container hero-carousel-container">
+            <button class="carousel-btn prev-btn">&#10094;</button>
+            <div class="carousel-track-container">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="C:\Users\adiba\OneDrive\Desktop\haneen\Meraci\Project 1\Project 1 Starter Code\assets\1.png" alt="Offer 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="C:\Users\adiba\OneDrive\Desktop\haneen\Meraci\Project 1\Project 1 Starter Code\assets\2.png" alt="Offer 2">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="C:\Users\adiba\OneDrive\Desktop\haneen\Meraci\Project 1\Project 1 Starter Code\assets\3.png" alt="Offer 3">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="C:\Users\adiba\OneDrive\Desktop\haneen\Meraci\Project 1\Project 1 Starter Code\assets\4.png" alt="Offer 4">
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-btn next-btn">&#10095;</button>
+        </div>
+    </section>
+
+<!-- Two Product Cards Section -->
+<section class="product-cards-section">
+    <div class="container product-cards-container">
+
+        <!-- First Card -->
+        <div class="product-card">
+            <img src="C:\Users\adiba\OneDrive\Desktop\haneen\Meraci\Project 1\Project 1 Starter Code\assets\card 1.png" alt="Hoover Vacuum Cleaner 1" class="product-image">
+            <h3 class="product-title">Compact Drum Vacuum Cleaner</h3>
+            <p class="product-description">Powerful and compact vacuum with blower function, perfect for home and office cleaning. Durable, efficient, and easy to store.</p>
+
+            <!-- Know More Button -->
+            <a href="product1.html" class="card-btn know-more-btn">🔍 Know More</a>
+
+            <!-- Lower Action Buttons -->
+            <div class="card-actions">
+                <button class="card-btn">♥ Add to Wishlist</button>
+                <button class="card-btn">🛒 Buy Now</button>
+            </div>
+        </div>
+
+        <!-- Second Card -->
+        <div class="product-card">
+            <img src="" alt="Hoover Vacuum Cleaner 2" class="product-image">
+            <h3 class="product-title">Hoover Creative Vacuum Cleaner 2</h3>
+            <p class="product-description">Add your brief description here. Placeholder for Hoover vacuum cleaner details.</p>
+
+            <!-- Know More Button -->
+            <button class="card-btn know-more-btn">🔍 Know More</button>
+
+            <!-- Lower Action Buttons -->
+            <div class="card-actions">
+                <button class="card-btn">♥ Add to Wishlist</button>
+                <button class="card-btn">🛒 Buy Now</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+    <!-- Footer (unchanged) -->
+    <footer class="main-footer">
+        <ul>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Warranty Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Terms of Sale</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Consumer Rights</a></li>
+        </ul>
+        <div class="copyright">
+            © 2026 LuLu. All Rights Reserved
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
