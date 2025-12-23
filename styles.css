@@ -1,4 +1,4 @@
-/* General Body Styles */
+/* General Body Styles */ 
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -56,7 +56,7 @@ body {
 }
 
 .search-bar button {
-    background-color: #ff6f61;
+    background-color: #add8e6; /* light blue */
     color: white;
     border: none;
     padding: 10px 15px;
@@ -73,7 +73,7 @@ body {
     gap: 10px;
 }
 
-/* Sign In & Language buttons */
+/* Sign In & Language buttons (Blue-Green Gradient) */
 .sign-in-btn,
 .language-select {
     height: 36px;
@@ -87,23 +87,26 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: colorCycle 6s infinite;
+    background: linear-gradient(90deg, #2FB4F5, #4CD964);
+    background-size: 300% 300%;
+    animation: blueGreenCycle 6s infinite;
 }
 
-.sign-in-btn {
-    background-color: #FFC700;
-}
-
+/* Language select button */
 .language-select {
-    background-color: #FFC700;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    padding-right: 34px;
-    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns="http://www.w3.org/2000/svg" width="292.4" height="292.4"%3E%3Cpath fill="%23ffffff" d="M287 69.4a17.6 17.6 0 0 0-13-5.4H18.4c-6.5 0-12.3 3.2-16.1 8.1-3.9 4.9-4.9 11.6-2.6 17.9l131.5 178.5c3.5 4.4 8.8 7.1 14.5 7.1s11-2.7 14.5-7.1L291.7 90c2.2-6.3 1.2-13-2.6-17.9z"/%3E%3C/svg%3E');
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 10px;
+    background: linear-gradient(90deg, #2FB4F5, #4CD964); /* blue-green */
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    height: 36px;
+    min-width: 100px;
+    text-align: center;
+    padding: 0 14px;
+    cursor: pointer;
 }
 
 /* Wishlist button (empty heart with red border) */
@@ -111,7 +114,6 @@ body {
     font-size: 28px;
     text-decoration: none;
     cursor: pointer;
-    border: 
     color: transparent;
     display: flex;
     align-items: center;
@@ -145,19 +147,21 @@ body {
     background-color: navy;
     color: #fff;
     margin-top: auto;
-    padding: 50px 0; /* increased height */
-    text-align: center;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: space-between; /* copyright right, links center */
+    align-items: center;
     border: none;
+    flex-wrap: wrap; /* allow wrapping on small screens */
 }
 
 .main-footer ul {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 auto; /* center the links */
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 20px; /* bigger gap */
 }
 
 .main-footer li {
@@ -167,17 +171,69 @@ body {
 .main-footer a {
     color: #fff;
     text-decoration: none;
-    padding: 8px 16px;
-    border: 1px solid #fff;
-    border-radius: 20px;
+    padding: 12px 24px; /* bigger buttons */
+    border: none; /* removed borders */
+    border-radius: 25px;
     transition: all 0.3s ease;
-    font-size: 14px;
+    font-size: 16px; /* larger text */
 }
 
 .main-footer a:hover {
     background-color: #fff;
     color: navy;
-    border-color: #fff;
+}
+
+/* Copyright text */
+.main-footer .copyright {
+    font-size: 14px;
+    margin-top: 10px; /* spacing on mobile */
+}
+
+/* Creative Brands Navigation Bar (Blue-Green Gradient) */
+.brands-nav {
+    background-color: #f0f0f0; /* light gray background */
+    padding: 15px 0;
+}
+
+.brands-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.brands-nav li {
+    display: inline-block;
+}
+
+.brands-nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    background: linear-gradient(90deg, #2FB4F5, #4CD964);
+    background-size: 300% 300%;
+    animation: blueGreenCycle 6s ease infinite;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Hover Effect */
+.brands-nav a:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Gradient animation for brands nav and buttons */
+@keyframes blueGreenCycle {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
 }
 
 /* Responsive Adjustments */
@@ -196,6 +252,20 @@ body {
     .header-nav {
         justify-content: center;
         margin-top: 10px;
+    }
+
+    .main-footer {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .main-footer .copyright {
+        order: 2;
+    }
+
+    .main-footer ul {
+        margin: 0;
     }
 }
 
@@ -217,18 +287,14 @@ body {
     }
 
     .main-footer a {
-        padding: 6px 12px;
-        font-size: 12px;
+        padding: 10px 20px;
+        font-size: 14px;
     }
-}
 
-/* Color Cycling Animation */
-@keyframes colorCycle {
-    0%   { background-color: #FFC700; }
-    25%  { background-color: #E84C88; }
-    50%  { background-color: #2FB4F5; }
-    75%  { background-color: #4CD964; }
-    100% { background-color: #FFC700; }
+    .brands-nav a {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
 }
 
 /* Logo Bounce Animation */
@@ -237,47 +303,3 @@ body {
     40% { transform: translateY(-10px); }
     60% { transform: translateY(-5px); }
 }
-</style>
-</head>
-<body>
-
-<header class="main-header">
-    <div class="container">
-        <div class="header-content">
-            <a href="#" class="logo">
-                <img src="assets/logo.png" alt="LuLu Logo">
-            </a>
-            <div class="search-bar">
-                <input type="text" placeholder="Search for products...">
-                <button>Search</button>
-            </div>
-            <nav class="header-nav">
-                <button class="sign-in-btn">Sign In</button>
-                <select class="language-select">
-                    <option value="en">English</option>
-                    <option value="ar">العربية</option>
-                </select>
-                <a href="#" class="wishlist-link"></a>
-                <a href="#" class="cart-link">🛒</a>
-            </nav>
-        </div>
-    </div>
-</header>
-
-<main class="container" style="flex-grow:1;">
-    <!-- Main content here -->
-</main>
-
-<footer class="main-footer">
-    <ul>
-        <li><a href="#">Careers</a></li>
-        <li><a href="#">Warranty Policy</a></li>
-        <li><a href="#">Terms of Use</a></li>
-        <li><a href="#">Terms of Sale</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Consumer Rights</a></li>
-    </ul>
-</footer>
-
-</body>
-</html>

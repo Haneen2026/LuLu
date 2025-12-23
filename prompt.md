@@ -12,9 +12,15 @@ no just the background of the header and the footer is navy blue, the footer is 
 
 make the logo bigger and the search bar in the center between the buttons and the logo
 
-make the footer buttons not bullets and change the design 
+make the footer buttons not bullets and change the design
 
 reduce the height of the header and increase the height of the footer and remove the border
 
+ADD "© 2026 LuLu. All Rights Reserved" to the footer
 
+just make © 2026 LuLu. All Rights Reserved at the right of the footer and remove the borders of the footer buttons don't make any changes i didn't give you 
+
+add a navigation bar include the best 5 brands that sell vacuum cleaners without any styles and don't make any changes i didn't give you
+
+make the navigation bar buttons in-line and without bullets in black font and bold and large don't make any changes i didn't give you to
 
