@@ -1,30 +1,33 @@
-.logo-bounce {
-    animation: jsBounce 0.8s ease;
-}
+document.addEventListener("DOMContentLoaded", () => {
 
-const track = document.querySelector('.carousel-track');
-const slides = Array.from(track.children);
-const nextButton = document.querySelector('.next-btn');
-const prevButton = document.querySelector('.prev-btn');
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+    const nextButton = document.querySelector('.next-btn');
+    const prevButton = document.querySelector('.prev-btn');
 
-let currentIndex = 0;
+    if (!track || slides.length === 0 || !nextButton || !prevButton) {
+        console.error("Carousel elements not found");
+        return;
+    }
 
-function updateCarousel() {
-    const slideWidth = slides[0].getBoundingClientRect().width;
-    track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-}
+    let currentIndex = 0;
 
-// Next Button
-nextButton.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % slides.length;
+    function updateCarousel() {
+        const slideWidth = slides[0].getBoundingClientRect().width;
+        track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    }
+
+    nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateCarousel();
+    });
+
+    prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateCarousel();
+    });
+
+    window.addEventListener('resize', updateCarousel);
+
     updateCarousel();
 });
-
-// Prev Button
-prevButton.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    updateCarousel();
-});
-
-window.addEventListener('resize', updateCarousel);
-updateCarousel();
