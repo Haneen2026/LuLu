@@ -28,3 +28,27 @@ prevButton.addEventListener('click', () => {
 
 window.addEventListener('resize', updateCarousel);
 updateCarousel();
+// العناصر الخاصة بالكاروسيل فقط
+const slides = document.querySelectorAll('.carousel .slide');
+const dots = document.querySelectorAll('.carousel .dot');
+let currentIndex = 0;
+
+function showSlide(index) {
+    const container = document.querySelector('.carousel .carousel-container');
+    container.style.transform = `translateX(-${index * 100}%)`;
+
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[index].classList.add('active');
+}
+
+// الدوتس لتغيير الصور عند الضغط
+dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+        currentIndex = i;
+        showSlide(currentIndex);
+    });
+});
+
+// عرض أول صورة عند التحميل
+showSlide(currentIndex);
+
