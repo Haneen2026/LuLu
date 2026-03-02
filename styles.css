@@ -1,12 +1,48 @@
-/* General Body Styles */ 
+
+/* CSS Custom Properties for theming */
+:root {
+    --bg-color: #f8f8f8;
+    --text-color: #333;
+    --header-bg: navy;
+    --footer-bg: navy;
+    --footer-text: #fff;
+    --card-bg: #f8f4f4;
+    --brands-nav-bg: #f0f0f0;
+    --hero-bg: #f0f8ff;
+    --search-bg: #add8e6;
+    --btn-hover-bg: #1a1a2e;
+    --btn-hover-text: #ffffff;
+    --blue-text: navy;
+    --secondary-text: #555;
+}
+
+/* Dark mode variables */
+.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #ffffff;
+    --header-bg: #2c2c2c;
+    --footer-bg: #2c2c2c;
+    --footer-text: #ffffff;
+    --card-bg: #2d2d2d;
+    --brands-nav-bg: #3a3a3a;
+    --hero-bg: #2a2a2a;
+    --search-bg: #555;
+    --btn-hover-bg: #555;
+    --btn-hover-text: #ffffff;
+    --blue-text: #ff69b4;
+    --secondary-text: #ffffff;
+}
+
+/* General Body Styles */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
-    color: #333;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -17,9 +53,10 @@ body {
 
 /* Header Styles */
 .main-header {
-    background-color: navy;
+    background-color: var(--header-bg);
     padding: 10px 0;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: background-color 0.3s ease;
 }
 
 .header-content {
@@ -78,13 +115,14 @@ body {
 }
 
 .search-bar button {
-    background-color: #add8e6;
+    background-color: var(--search-bg);
     color: white;
     border: none;
     padding: 10px 15px;
     border-radius: 0 25px 25px 0;
     cursor: pointer;
     font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
 /* Header Nav */
@@ -147,10 +185,34 @@ body {
     cursor: pointer;
 }
 
+/* Theme toggle button */
+.theme-toggle-btn {
+    font-size: 24px;
+    margin-left: 15px;
+    text-decoration: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #fff;
+    padding: 5px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
+}
+
 /* Footer Styles */
 .main-footer {
-    background-color: navy;
-    color: #fff;
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
     margin-top: auto;
     padding: 50px 20px;
     display: flex;
@@ -158,6 +220,7 @@ body {
     align-items: center;
     border: none;
     flex-wrap: wrap;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .main-footer ul {
@@ -180,7 +243,7 @@ body {
 
 .main-footer a:hover {
     background-color: #fff;
-    color: navy;
+    color: var(--blue-text);
 }
 
 .main-footer .copyright {
@@ -190,8 +253,9 @@ body {
 
 /* Brands Nav */
 .brands-nav {
-    background-color: #f0f0f0;
+    background-color: var(--brands-nav-bg);
     padding: 15px 0;
+    transition: background-color 0.3s ease;
 }
 
 .brands-nav ul {
@@ -233,9 +297,10 @@ body {
 /* Hero Section */
 .hero-offers-carousel {
     position: relative;
-    background-color: #f0f8ff;
+    background-color: var(--hero-bg);
     padding: 50px 0;
     overflow: hidden;
+    transition: background-color 0.3s ease;
 }
 
 .hero-carousel-container {
@@ -293,10 +358,11 @@ body {
 
 /* Product Cards Section */
 .product-cards-section {
-    background-color: #ffffff;
+    background-color: var(--bg-color);
     padding: 50px 0;
     display: flex;
     justify-content: center;
+    transition: background-color 0.3s ease;
 }
 
 .product-cards-container {
@@ -307,7 +373,7 @@ body {
 }
 
 .product-card {
-    background-color: #f8f4f4;
+    background-color: var(--card-bg);
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     width: calc(50% - 10px);
@@ -316,7 +382,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     padding: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .product-card:hover {
@@ -372,7 +438,7 @@ body {
 
 .product-card .product-description {
     font-size: 18px;
-    color: #5b0404;
+    color: var(--text-color);
     text-align: justify;
     flex-grow: 1;
     margin-bottom: 15px;
@@ -400,8 +466,8 @@ body {
 }
 
 .card-btn:hover {
-    background-color: #1a1a2e;
-    color: #ffffff;
+    background-color: var(--btn-hover-bg);
+    color: var(--btn-hover-text);
 }
 
 /* Responsive */
@@ -431,3 +497,97 @@ body {
     /* Logo Bounce Animation */
 
 }
+/* ============================= */
+/* RESPONSIVE FIXES */
+/* ============================= */
+
+/* Tablets & small laptops */
+@media (max-width: 992px) {
+
+    .header-content {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .search-bar {
+        order: 3;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .header-nav {
+        order: 2;
+    }
+
+    .logo img {
+        height: 90px;
+    }
+
+    .product-cards-container {
+        width: 85%;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    .header-content {
+        flex-direction: row;
+        align-items: center;
+        text-align: center;
+    }
+
+    .logo img {
+        height: 70px;
+    }
+
+    .search-bar {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .header-nav {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .main-footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .main-footer ul {
+        justify-content: center;
+    }
+
+    .product-cards-container {
+        width: 95%;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+
+    .logo img {
+        height: 60px;
+    }
+
+    .search-bar input {
+        font-size: 14px;
+    }
+
+    .search-bar button {
+        font-size: 14px;
+    }
+
+    .product-card .product-title {
+        font-size: 18px;
+    }
+
+    .product-card .product-description {
+        font-size: 15px;
+    }
+    
+}
+

@@ -1,29 +1,65 @@
+/* CSS Custom Properties for theming */
+:root {
+    --bg-color: #f8f8f8;
+    --text-color: #333;
+    --header-bg: navy;
+    --footer-bg: navy;
+    --footer-text: #fff;
+    --brands-nav-bg: #f0f0f0;
+    --customer-reviews-bg: linear-gradient(135deg, #e0f7ff, #f0f8ff);
+    --review-card-bg: #fff;
+    --specs-table-header-bg: #f0f8ff;
+    --btn-hover-bg: #1a1a2e;
+    --btn-hover-text: #ffffff;
+    --blue-text: navy;
+    --secondary-text: #555;
+}
+
+/* Dark mode variables */
+.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #ffffff;
+    --header-bg: #2c2c2c;
+    --footer-bg: #2c2c2c;
+    --footer-text: #ffffff;
+    --brands-nav-bg: #3a3a3a;
+    --customer-reviews-bg: linear-gradient(135deg, #2a2a2a, #3a3a3a);
+    --review-card-bg: #2d2d2d;
+    --specs-table-header-bg: #3a3a3a;
+    --btn-hover-bg: #555;
+    --btn-hover-text: #ffffff;
+    --blue-text: #ff69b4;
+    --secondary-text: #ffffff;
+}
+
 /* =========================================
    Global / Layout
 ========================================= */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f8f8f8;
-  color: #333;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 32px;
 }
 
 /* =========================================
    Header
 ========================================= */
 .main-header {
-  background-color: navy;
+  background-color: var(--header-bg);
   padding: 10px 0;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: background-color 0.3s ease;
 }
 
 .header-content {
@@ -72,13 +108,14 @@ body {
 }
 
 .search-bar button {
-  background-color: #add8e6;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 0 25px 25px 0;
-  cursor: pointer;
-  font-size: 16px;
+    background-color: var(--search-bg);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 0 25px 25px 0;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
 /* Header Nav */
@@ -141,12 +178,37 @@ body {
   cursor: pointer;
 }
 
+/* Theme toggle button */
+.theme-toggle-btn {
+    font-size: 24px;
+    margin-left: 15px;
+    text-decoration: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #fff;
+    padding: 5px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
+}
+
 /* =========================================
    Brands Nav
 ========================================= */
 .brands-nav {
-  background-color: #f0f0f0;
+  background-color: var(--brands-nav-bg);
   padding: 15px 0;
+  transition: background-color 0.3s ease;
 }
 
 .brands-nav ul {
@@ -189,8 +251,8 @@ body {
    Footer
 ========================================= */
 .main-footer {
-  background-color: navy;
-  color: #fff;
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
   margin-top: auto;
   padding: 50px 20px;
   display: flex;
@@ -198,6 +260,7 @@ body {
   align-items: center;
   border: none;
   flex-wrap: wrap;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .main-footer ul {
@@ -220,7 +283,7 @@ body {
 
 .main-footer a:hover {
   background-color: #fff;
-  color: navy;
+  color: var(--blue-text);
 }
 
 .main-footer .copyright {
@@ -283,12 +346,12 @@ body {
   display: flex;
   align-items: flex-start;
   gap: 20px;
-  margin: 30px 20px;
+  margin: 40px 32px 20px 32px;
 }
 
 .left-aligned-carousel-with-text .carousel {
   flex-shrink: 0;
-  max-width: 600px;
+  max-width: 400px;
 }
 
 .left-aligned-carousel-with-text .carousel-text {
@@ -323,16 +386,18 @@ body {
    Customer Reviews
 ========================================= */
 .customer-reviews {
-  max-width: 1000px;
-  margin: 50px auto;
+  max-width: 900px;
+  margin: 20px auto;
   padding: 30px 20px;
-  background: linear-gradient(135deg, #e0f7ff, #f0f8ff);
+  background: var(--customer-reviews-bg);
   border-radius: 15px;
+  transition: background 0.3s ease;
+  overflow: hidden;
 }
 
 .customer-reviews h3 {
   font-size: 26px;
-  color: navy;
+  color: var(--blue-text);
   text-align: center;
   margin-bottom: 25px;
 }
@@ -340,20 +405,19 @@ body {
 .reviews-carousel {
   display: flex;
   gap: 20px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  flex-wrap: nowrap;
-  padding-bottom: 10px;
+  transition: transform 0.5s ease;
 }
 
 .review-card {
   flex: 0 0 auto;
   width: 300px;
-  background-color: #fff;
+  min-width: 300px;
+  background-color: var(--review-card-bg);
+  border: 2px solid #FFD700;
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
   display: flex;
   flex-direction: column;
   word-break: break-word; /* نصوص طويلة تلتف */
@@ -379,12 +443,54 @@ body {
 .review-author {
   font-size: 14px;
   font-weight: bold;
-  color: #555;
+  color: var(--secondary-text);
 }
 
 /* Hide scrollbar */
 .reviews-carousel::-webkit-scrollbar { display: none; }
 .reviews-carousel { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Reviews Navigation */
+.reviews-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.review-nav-btn {
+    background-color: var(--search-bg);
+    color: navy;
+    border: none;
+    padding: 12px 16px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 900;
+    transition: all 0.3s ease;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.review-nav-btn:hover {
+    background-color: #555;
+    transform: scale(1.1);
+}
+
+/* Dark mode review navigation buttons */
+.dark-mode .review-nav-btn {
+    color: #ff69b4;
+}
+
+.review-nav-btn:disabled,
+.review-nav-btn[style*="opacity: 0.5"] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
 
 /* Responsive Reviews */
 @media (max-width: 768px) {
@@ -393,35 +499,100 @@ body {
 }
 
 /* =========================================
+   Highlights and Benefits Row
+========================================= */
+.highlights-benefits-row {
+    display: flex;
+    gap: 10px;
+    margin: 20px 32px;
+    align-items: flex-start;
+}
+
+/* =========================================
    Product Highlights
 ========================================= */
+.highlights-benefits-row {
+  display: flex;
+  gap: 15px;
+  margin: 30px 32px;
+  align-items: flex-start;
+}
+
+/* Product Highlights */
 .product-highlights {
-    margin-top: 20px;
+  flex: 0 0 35%;
+  margin: 0;
 }
 
 .product-highlights h3 {
-    font-size: 20px;
-    color: navy;
-    margin-bottom: 10px;
-    text-align: left;
+  font-size: 20px;
+  color: var(--blue-text);
+  margin-bottom: 15px;
 }
 
 .product-highlights ul {
-    padding-left: 20px;
-    line-height: 1.6;
-    color: #333;
+  padding-left: 20px;
+  line-height: 1.6;
 }
+
+.product-highlights li {
+  margin-bottom: 8px;
+}
+
+/* Key Benefits */
+.key-benefits-section {
+  flex: 0 0 65%;
+  margin: 0;
+}
+
+.key-benefits-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+
+  /* أهم تعديل */
+  margin: 0;
+  max-width: none;
+}
+
+.key-benefit {
+  display: flex;
+  align-items: center;
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  padding: 20px;
+  height: 80px;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.benefit-icon {
+  font-size: 36px;
+  margin-right: 15px;
+}
+
+.benefit-content h4 {
+  font-size: 18px;
+  color: var(--blue-text);
+  margin: 0 0 5px 0;
+}
+
+.benefit-content p {
+  font-size: 14px;
+  color: var(--secondary-text);
+  margin: 0;
+}
+
 
 /* =========================================
    Product Specifications
 ========================================= */
 .product-specifications {
-    margin-top: 30px;
+    margin: 20px 32px;
 }
 
 .product-specifications h3 {
     font-size: 20px;
-    color: navy;
+    color: var(--blue-text);
     margin-bottom: 15px;
 }
 
@@ -442,28 +613,30 @@ body {
 .product-specifications th {
     width: 200px;
     font-weight: bold;
-    background-color: #f0f8ff;
-    color: #333;
+    background-color: var(--specs-table-header-bg);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .product-specifications td {
-    color: #555;
+    color: var(--secondary-text);
 }
 .product-purchase {
-    margin-top: 20px;
+    margin: 20px 0px;
 }
 
 .product-purchase h3 {
     font-size: 20px;
-    color: navy;
+    color: var(--blue-text);
     margin-bottom: 10px;
 }
 
 .price-value {
-    font-size: 28px;
+    font-size: 20px;
     font-weight: bold;
     color: #e53935; /* أحمر جذاب للسعر */
-    margin: 0 0 15px 0;
+    margin: 0 20px 0 0;
+    display: inline-block;
 }
 
 .buy-now-btn {
@@ -477,6 +650,7 @@ body {
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
+    margin: 0;
 }
 
 .buy-now-btn:hover {
@@ -484,3 +658,192 @@ body {
     transform: scale(1.05);
 }
 
+/* =========================================
+   FAQ Section
+========================================= */
+.faq-section {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 30px 20px;
+}
+
+.faq-section h3 {
+  font-size: 28px;
+  color: var(--blue-text);
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  background-color: var(--card-bg);
+  transition: box-shadow 0.3s ease;
+}
+
+.faq-item:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.faq-question {
+  width: 100%;
+  padding: 20px 25px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-color);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+  color: var(--blue-text);
+}
+
+.faq-question:focus {
+  outline: 2px solid var(--blue-text);
+  outline-offset: 2px;
+}
+
+.faq-icon {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--blue-text);
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.faq-item.active .faq-answer {
+  max-height: 200px;
+  padding: 0 25px 20px 25px;
+}
+
+.faq-answer p {
+  margin: 15px 0 0 0;
+  color: var(--secondary-text);
+  line-height: 1.6;
+}
+
+/* ============================= */
+/* RESPONSIVE FIXES */
+/* ============================= */
+
+/* Highlights and Benefits Row - Mobile */
+@media (max-width: 768px) {
+    .highlights-benefits-row {
+        flex-direction: column;
+        gap: 30px;
+        margin: 30px 20px;
+    }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+
+  .header-content {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .search-bar {
+    order: 3;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .header-nav {
+    order: 2;
+  }
+
+  .logo img {
+    height: 90px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  .header-content {
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+  }
+
+  .logo img {
+    height: 70px;
+  }
+
+  .search-bar {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .header-nav {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .main-footer {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .main-footer ul {
+    justify-content: center;
+  }
+
+  /* Make tables scrollable on mobile */
+  .product-specifications {
+    overflow-x: auto;
+  }
+
+  .product-specifications table {
+    min-width: 600px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+
+  .logo img {
+    height: 60px;
+  }
+
+  .carousel-slide img,
+  .slide img {
+    height: 280px;
+  }
+
+  .price-value {
+    font-size: 22px;
+  }
+
+  .buy-now-btn {
+    width: 100%;
+    padding: 14px;
+  }
+  
+}
